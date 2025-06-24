@@ -6,6 +6,7 @@ import Productos from './pages/Productos';
 import ProductoDetalle from './pages/ProductoDetalle';
 import MainLayout from './assets/layouts/mainLayout';
 import { CarritoProvider } from './context/carritoProvider';
+import Carrito from './pages/Carrito';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="productos" element={<Productos />} />
         <Route path="producto/:idProducto" element={<ProductoDetalle />} />
         <Route path="contacto" element={<Contacto />} />
+        <Route path="carrito" element={<Carrito />} />
         <Route path="*" element={<h1>404</h1>} />
       </Route>
     </Routes>
