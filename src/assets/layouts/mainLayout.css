@@ -1,0 +1,55 @@
+/* Tipografía moderna y colores neutros con acentos */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: #f9f9fb;
+    color: #333;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(90deg, #e0eafc, #cfdef3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 16px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease-in-out;
+    border-radius: 12px;
+  }
+  
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #1a73e8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+  }
+  
+  .main-content {
+    padding: 2rem;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  /* Animación sutil de entrada */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
