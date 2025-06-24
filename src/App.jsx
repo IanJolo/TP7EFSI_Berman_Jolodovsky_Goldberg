@@ -11,7 +11,7 @@ function App() {
   return (
     <CarritoProvider>
     <Routes>
-      <Route path="/" element={<MainLayout />}>
+      <Route path="/TP7EFSI_Berman_Jolodovsky_Goldberg/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="quienessomos" element={<QuienesSomos />} />
         <Route path="productos" element={<Productos />} />
