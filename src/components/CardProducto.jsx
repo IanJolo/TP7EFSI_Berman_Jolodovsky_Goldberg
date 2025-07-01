@@ -7,6 +7,7 @@ export default function CardProducto({ producto }) {
       <img src={producto.images[0]} alt={producto.title} />
       <h2>{producto.title || 'Producto'}</h2>
       <h3>{`$${producto.price}`}</h3>
+      <p>Ver más</p>
     </a>
   );
 }

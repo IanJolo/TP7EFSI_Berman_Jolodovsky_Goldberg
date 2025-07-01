@@ -1,29 +1,19 @@
 import { Link } from 'react-router-dom';
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { CarritoContext } from '../context/CarritoContext';
 
 function Navbar() {
   const [cantidadCarrito, setCantidadCarrito] = useState(0);
+  const { carrito } = useContext(CarritoContext);
 
-  useEffect(() => {
-    const carrito = localStorage.getItem('carrito');
-    if (carrito) {
-      try {
-        const parsed = JSON.parse(carrito);
-        setCantidadCarrito(parsed.length);
-      } catch (e) {
-        console.error('Carrito inválido en localStorage:', e);
-        setCantidadCarrito(0);
-      }
-    } else {
-      setCantidadCarrito(0);
-    }
-    window.addEventListener("storage", () => {
-      const carritoActualizado = JSON.parse(localStorage.getItem('carrito') || '[]');
-      setCantidadCarrito(carritoActualizado.length);
-    });
-
-  }, []);
+  useEffect(()=>{
+    let cant=0;
+    carrito.map((i)=>{
+      cant+=i.cant;
+    })
+    setCantidadCarrito(cant);
+  },[carrito]);
 
   return (
     <nav className="navbar">
@@ -35,7 +25,7 @@ function Navbar() {
         <Link to="/TP7EFSI_Berman_Jolodovsky_Goldberg/contacto">Contacto</Link>
       </div>
       <Link to="/TP7EFSI_Berman_Jolodovsky_Goldberg/carrito" className='carrito'>
-        <p>{cantidadCarrito}</p>
+        <p>{cantidadCarrito || '0'}</p>
         <AiOutlineShoppingCart />
       </Link>
     </nav>

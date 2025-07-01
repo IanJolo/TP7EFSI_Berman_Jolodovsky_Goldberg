@@ -23,10 +23,6 @@ export default function ProductoDetalle() {
   if (!producto) return <div className="loading">Cargando producto...</div>;
 
   const agregarAlCarro = () => {
-    let carro = localStorage.getItem('carrito');
-    let carrito = carro ? JSON.parse(carro) : [];
-    carrito.push(producto);
-    localStorage.setItem('carrito', JSON.stringify(carrito));
     agregarAlCarrito(producto);
   };
 
