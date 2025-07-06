@@ -1,0 +1,75 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, #e0eafc, #cfdef3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 1rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #173260;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .logo span {
+    letter-spacing: 1px;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1.2rem;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #1a73e8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+  }
+  
+  .carrito-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    color: #173260;
+    position: relative;
+    padding: 0.5rem 0.8rem;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .carrito-link:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.05);
+  }
+  
+  .carrito-cantidad {
+    background-color: #00b894;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 999px;
+    padding: 0.2rem 0.5rem;
+  }
+  

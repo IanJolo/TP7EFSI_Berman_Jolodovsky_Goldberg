@@ -15,18 +15,18 @@ export default function Productos() {
 
 
   useEffect(() => {
-    if (!idCategoria || idCategoria === "Todas") {
-      axios.get(url)
-        .then(response => setProductos(response.data.products))
-        .catch(error => console.error("Error al cargar productos:", error));
-    } else if(idCategoria!="Todas" && buscador=="") {
-      axios.get(`${url}/category/${idCategoria}`)
-        .then(response => setProductos(response.data.products))
-        .catch(error => console.error("Error al cargar productos:", error));
-    } else{
+    if ((!idCategoria || idCategoria === "Todas")&& buscador) {
       axios.get(`${url}/search?q=${buscador}`)
         .then(response => setProductos(response.data.products))
         .catch(error => console.error("Error al cargar productos:", error)); 
+    } else if (!idCategoria || idCategoria === "Todas") {
+      axios.get(url)
+        .then(response => setProductos(response.data.products))
+        .catch(error => console.error("Error al cargar productos:", error));
+    } else if(idCategoria!="Todas") {
+      axios.get(`${url}/category/${idCategoria}`)
+        .then(response => setProductos(response.data.products))
+        .catch(error => console.error("Error al cargar productos:", error));
     }
   }, [idCategoria, buscador]);
 
@@ -69,7 +69,9 @@ export default function Productos() {
             ))}
           </select>
         </div>
-        <input value={buscador} onChange={handleChangeBuscador} />
+        {
+        idCategoria=="Todas"||!idCategoria? (<input className="buscador-input" value={buscador} onChange={handleChangeBuscador} />):null
+      }
       </div>
       <div className="productos-container">
         {productos.length === 0 ? (

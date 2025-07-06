@@ -114,3 +114,23 @@
     padding: 1rem;
   }
 }
+
+.buscador-input {
+  width: 85%;
+  max-width: 400px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border: 1px solid #b2bec3;
+  border-radius: 1.5rem;
+  background: #fff;
+  color: #173260;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(120, 144, 156, 0.08);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 1rem;
+}
+
+.buscador-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
