@@ -3,6 +3,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useEffect, useState, useContext } from 'react';
 import { CarritoContext } from '../context/CarritoContext';
 import './Navbar.css';
+import logo from '../assets/logo.png';
 
 function Navbar() {
   const [cantidadCarrito, setCantidadCarrito] = useState(0);
@@ -18,7 +19,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="logo">🛒 <span>MiTienda</span></div>
+      <div className="logo"><img src={logo} alt="TuiTui Logo" className='logo' /><span>TuiTui</span></div>
       <div className="nav-links">
         <Link to="/TP7EFSI_Berman_Jolodovsky_Goldberg/" className="nav-link">Home</Link>
         <Link to="/TP7EFSI_Berman_Jolodovsky_Goldberg/productos" className="nav-link">Productos</Link>
