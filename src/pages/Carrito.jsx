@@ -1,23 +1,20 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import CarritoCard from '../components/CarritoCard';
-
-
+import { CarritoContext } from '../context/CarritoContext';
 
 export default function Carrito() {
-    const[carro,setCarro]=useState([]);
-    useEffect(()=>{
-        setCarro(JSON.parse(localStorage.getItem('carrito')))
-    },[])
+  const { carrito } = useContext(CarritoContext);
+
   return (
     <>
-    <div>Carrito</div>
-    {
-        carro.map((item,index )=>{
-            return <CarritoCard key={index} producto={item} />
-        })
-    }
+      <div>Carrito</div>
+      {carrito.length === 0 ? (
+        <p>No hay productos en el carrito.</p>
+      ) : (
+        carrito.map((item, index) => (
+          <CarritoCard key={index} producto={item} />
+        ))
+      )}
     </>
-    
-  )
+  );
 }
