@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; // 👈 se agregó useNavigate
 import './ProductoDetalle.css';
 import { CarritoContext } from '../context/CarritoContext';
 
 export default function ProductoDetalle() {
   const { idProducto } = useParams();
+  const navigate = useNavigate(); // 👈 se agregó esto
   const url = `https://dummyjson.com/products/${idProducto}`;
   const [producto, setProducto] = useState(null);
   const { agregarAlCarrito } = useContext(CarritoContext);
@@ -27,22 +28,29 @@ export default function ProductoDetalle() {
   };
 
   return (
-    <div className="producto-container">
-      <img
-        src={producto.images?.[0]}
-        alt={producto.title}
-        className="producto-imagen"
-      />
-      <div className="producto-info">
-        <h1 className="producto-titulo">{producto.title}</h1>
-        <p className="producto-descripcion">{producto.description}</p>
-        <h2 className="producto-precio">${producto.price}</h2>
-        <button
-          className="btn-agregar-carrito"
-          onClick={agregarAlCarro}
-        >
-          Agregar al carrito
-        </button>
+    <div className="producto-detalle-wrapper">
+      {/* 👇 flecha de retroceso */}
+      <button className="boton-volver" onClick={() => navigate(-1)} aria-label="Volver">
+        ←
+      </button>
+
+      <div className="producto-container">
+        <img
+          src={producto.images?.[0]}
+          alt={producto.title}
+          className="producto-imagen"
+        />
+        <div className="producto-info">
+          <h1 className="producto-titulo">{producto.title}</h1>
+          <p className="producto-descripcion">{producto.description}</p>
+          <h2 className="producto-precio">${producto.price}</h2>
+          <button
+            className="btn-agregar-carrito"
+            onClick={agregarAlCarro}
+          >
+            Agregar al carrito
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import QuienesSomos from './pages/QuienesSomos';
 import Contacto from './pages/Contacto';
 import Productos from './pages/Productos';
-import ProductoDetalle from './pages/ProductoDetalle';
+import ProductoDetalle from './pages/productoDetalle';
 import MainLayout from './assets/layouts/mainLayout';
 import { CarritoProvider } from './context/carritoProvider';
 import Carrito from './pages/Carrito';
