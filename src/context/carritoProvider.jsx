@@ -61,9 +61,13 @@ export function CarritoProvider({ children }) {
       return nuevoCarrito;
     });
   };
+  const borrarCarrito=()=>{
+    setCarrito([]);
+    localStorage.setItem('carrito', JSON.stringify([]));
+  }
 
   return (
-    <CarritoContext.Provider value={{ carrito, agregarAlCarrito, eliminarDelCarrito, agregarCantCarrito }}>
+    <CarritoContext.Provider value={{ carrito, agregarAlCarrito, eliminarDelCarrito, agregarCantCarrito, borrarCarrito }}>
       {children}
     </CarritoContext.Provider>
   );

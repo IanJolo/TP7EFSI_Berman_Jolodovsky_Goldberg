@@ -1,0 +1,9 @@
+.botones-abajo{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.botones-abajo button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }

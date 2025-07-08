@@ -7,6 +7,7 @@ import ProductoDetalle from './pages/productoDetalle';
 import MainLayout from './assets/layouts/mainLayout';
 import { CarritoProvider } from './context/carritoProvider';
 import Carrito from './pages/Carrito';
+import Checkout from './pages/Checkout';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="productos/:idCategoria" element={<Productos />} /> 
         <Route path="contacto" element={<Contacto />} />
         <Route path="carrito" element={<Carrito />} />
+        <Route path="checkout" element={<Checkout />} />
         <Route path="*" element={<h1>404</h1>} />
       </Route>
     </Routes>
