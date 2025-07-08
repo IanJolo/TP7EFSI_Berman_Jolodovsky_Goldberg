@@ -2,10 +2,15 @@ import React, { useContext, useState, useEffect } from 'react';
 import { CarritoContext } from '../context/CarritoContext';
 import { useNavigate } from 'react-router-dom';
 import './Checkout.css';
+import emailjs from "@emailjs/browser";
 
 export default function Checkout() {
+    emailjs.init('nakUWrDH1cw7NtNEb');
   const { carrito, borrarCarrito } = useContext(CarritoContext);
+  const [total,setTotal]=useState(0);
   const navigate = useNavigate();
+  const serviceID='service_toh0q67';
+  const templateID='template_meuwnvh';
 
   const [formData, setFormData] = useState({
     nombre: '',
@@ -17,9 +22,14 @@ export default function Checkout() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    console.log(carrito)
   }, []);
+  useEffect(()=>{
+    const totalCalculado = carrito.reduce((acc, item) => acc + item.cant * item.prod.price, 0);
+    setTotal(totalCalculado);
+  },[carrito])
 
-  const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,16 +38,38 @@ export default function Checkout() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     if (!formData.nombre || !formData.email || !formData.direccion) {
       setError('Por favor, completá todos los campos.');
       return;
     }
+  
+    const productsString = carrito
+      .map(item => `${item.cant} x ${item.prod.title} - $${item.prod.price * item.cant}`)
+      .join('\n');
+  
+    const templateParams = {
+      nombre: formData.nombre,
+      email: formData.email,
+      direccion: formData.direccion,
+      products: productsString,
 
-    // Simula una compra exitosa
-    borrarCarrito();
-    navigate('/compra-exitosa');
+    };
+
+
+    emailjs.send(serviceID, templateID, templateParams)
+      .then(response => {
+        console.log('Email enviado', response.status, response.text);
+        borrarCarrito();
+        navigate('/TP7EFSI_Berman_Jolodovsky_Goldberg/compra-exitosa');
+      })
+      .catch(error => {
+        console.error('Error al enviar email', error);
+        setError('Error al enviar el email. Por favor, intenta nuevamente.');
+      });
   };
+  
+  
 
   return (
     <div className="checkout-container">
@@ -82,11 +114,11 @@ export default function Checkout() {
             <ul>
               {carrito.map((item, i) => (
                 <li key={i}>
-                  {item.nombre} × {item.cantidad} - ${item.precio * item.cantidad}
+                 {item.cant} x ${item.prod.title} - $${item.prod.price * item.cant}
                 </li>
               ))}
             </ul>
-            <p className="total">Total: ${total.toFixed(2)}</p>
+            <p className="total">Total: ${total}</p>
           </>
         )}
       </div>

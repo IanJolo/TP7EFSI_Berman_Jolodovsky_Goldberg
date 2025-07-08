@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom'; // 👈 se agregó useNavigate
+import { useParams, useNavigate } from 'react-router-dom';
 import './ProductoDetalle.css';
 import { CarritoContext } from '../context/CarritoContext';
 
 export default function ProductoDetalle() {
   const { idProducto } = useParams();
-  const navigate = useNavigate(); // 👈 se agregó esto
+  const navigate = useNavigate(); 
   const url = `https://dummyjson.com/products/${idProducto}`;
   const [producto, setProducto] = useState(null);
   const { agregarAlCarrito } = useContext(CarritoContext);
@@ -29,7 +29,6 @@ export default function ProductoDetalle() {
 
   return (
     <div className="producto-detalle-wrapper">
-      {/* 👇 flecha de retroceso */}
       <button className="boton-volver" onClick={() => navigate(-1)} aria-label="Volver">
         ←
       </button>

@@ -1,0 +1,38 @@
+.compra-exitosa-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 2rem;
+  }
+  
+  .mensaje {
+    background-color: white;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+  
+  .mensaje h1 {
+    color: #2e7d32;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-volver {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 10px 20px;
+    background-color: #004aad;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-volver:hover {
+    background-color: #00317a;
+  }
+  

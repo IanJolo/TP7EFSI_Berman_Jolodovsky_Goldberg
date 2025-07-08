@@ -13,7 +13,6 @@ const Contacto = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // Acá podés agregar lógica para enviar el mensaje (ej: emailjs, API, etc.)
     console.log("Formulario enviado:", form);
     alert("¡Gracias por contactarnos!");
     setForm({ nombre: "", email: "", mensaje: "" });
