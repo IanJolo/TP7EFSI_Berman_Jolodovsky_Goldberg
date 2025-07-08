@@ -3,12 +3,20 @@ import axios from 'axios';
 import CardProducto from '../components/CardProducto';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
+import logo from './../assets/logo-white.png'
 
 export default function Home() {
   const [productosDestacados, setProductosDestacados] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth' 
+    });
+  }, []);
   useEffect(() => {
     const cargarProductosDestacados = async () => {
       try {
@@ -30,28 +38,23 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      {/* Banner Principal */}
       <section className="hero-banner">
         <div className="hero-content">
-          <h1 className="hero-title">Bienvenido a TechStore</h1>
-          <p className="hero-subtitle">Descubre los mejores productos tecnológicos con calidad premium</p>
+          <h1 className="hero-title">Bienvenido a TuiTui</h1>
+          <p className="hero-subtitle">Del comedor al living.</p>
           <div className="hero-buttons">
             <button className="btn-primary" onClick={handleVerTodos}>
               Ver Productos
-            </button>
-            <button className="btn-secondary">
-              Ofertas Especiales
             </button>
           </div>
         </div>
         <div className="hero-image">
           <div className="hero-placeholder">
-            <span>🚀</span>
+            <img className='logo-blanco' src={logo} />
           </div>
         </div>
       </section>
 
-      {/* Sección de Características */}
       <section className="features-section">
         <div className="container">
           <div className="features-grid">
@@ -79,7 +82,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Productos Destacados */}
       <section className="featured-products">
         <div className="container">
           <div className="section-header">
@@ -108,7 +110,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección de Categorías */}
       <section className="categories-section">
         <div className="container">
           <div className="section-header">
@@ -136,7 +137,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección de Newsletter */}
       <section className="newsletter-section">
         <div className="container">
           <div className="newsletter-content">
@@ -154,37 +154,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección de Testimonios */}
-      <section className="testimonials-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Lo que dicen nuestros clientes</h2>
-          </div>
-          <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <div className="testimonial-stars">⭐⭐⭐⭐⭐</div>
-              <p>"Excelente servicio y productos de calidad. Muy recomendado!"</p>
-              <div className="testimonial-author">
-                <strong>María González</strong>
-              </div>
-            </div>
-            <div className="testimonial-card">
-              <div className="testimonial-stars">⭐⭐⭐⭐⭐</div>
-              <p>"Envío rápido y productos tal como se describen. Satisfecho!"</p>
-              <div className="testimonial-author">
-                <strong>Carlos Rodríguez</strong>
-              </div>
-            </div>
-            <div className="testimonial-card">
-              <div className="testimonial-stars">⭐⭐⭐⭐⭐</div>
-              <p>"La mejor tienda online que he encontrado. Precios justos!"</p>
-              <div className="testimonial-author">
-                <strong>Ana Martínez</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

@@ -4,8 +4,10 @@ import "./QuienesSomos.css";
 import jolo from "./../assets/jolo.png";
 import berman from "./../assets/berman.png";
 import tomi from "./../assets/tomi.png";
+import { useEffect } from "react";
 
 export default function QuienesSomos() {
+  
   const integrantes = [
     {
       nombre: "Tomi Goldberg",
@@ -31,6 +33,13 @@ export default function QuienesSomos() {
       },
   ];
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth' 
+    });
+  }, []);
   return (
     <div className="quienes-container">
       <h1 className="quienes-titulo">¿Quiénes somos?</h1>

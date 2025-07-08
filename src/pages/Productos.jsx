@@ -19,6 +19,13 @@ export default function Productos() {
   const productosPorFila = 4;
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth' 
+    });
+  }, []);
+  useEffect(() => {
     let endpoint = url;
     let params = { limit: productosPorPagina, skip: (paginaActual - 1) * productosPorPagina };
 
