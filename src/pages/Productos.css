@@ -53,9 +53,15 @@
   font-size: 1.3rem;
   color: #636e72;
   padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;           
+  width: 100%;
+  text-align: center;
+  grid-column: 1 / -1;        
 }
 
-/* Ejemplo de tarjeta de producto (puedes adaptar CardProducto) */
 .card-producto {
   background: #fff;
   border-radius: 1.1rem;
@@ -133,4 +139,47 @@
 .buscador-input:focus {
   border-color: #6366f1;
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+
+.paginacion {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 0.4rem;
+}
+.paginacion-btn {
+  padding: 0.5rem 1.1rem;
+  border: none;
+  border-radius: 0.7rem;
+  background: #6366f1;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.paginacion-btn:disabled {
+  background: #b2bec3;
+  cursor: not-allowed;
+}
+.paginacion-btn.active {
+  background: #173260;
+  font-weight: bold;
+}
+
+.productos-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
+@media (max-width: 1000px) {
+  .productos-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .productos-container {
+    grid-template-columns: 1fr;
+  }
 }
