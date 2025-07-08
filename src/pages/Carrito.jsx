@@ -1,9 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import CarritoCard from '../components/CarritoCard';
 import { CarritoContext } from '../context/CarritoContext';
+import './Carrito.css'
+import { useNavigate } from 'react-router-dom';
 
 export default function Carrito() {
-  const { carrito } = useContext(CarritoContext);
+  const { carrito, borrarCarrito } = useContext(CarritoContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo({
@@ -12,6 +15,14 @@ export default function Carrito() {
       behavior: 'smooth' 
     });
   }, []);
+
+  const handleBorrarCarrito=()=>{
+    borrarCarrito();
+  }
+  const handleComprar=()=>{
+    navigate('/TP7EFSI_Berman_Jolodovsky_Goldberg/checkout');
+  }
+
   return (
     <>
       <div>Carrito</div>
@@ -22,6 +33,10 @@ export default function Carrito() {
           <CarritoCard key={index} producto={item} />
         ))
       )}
+      <div className='botones-abajo'>
+          <button onClick={handleBorrarCarrito} className="btn-secondary" disabled={carrito.length==0}>Borrar carrito</button>
+          <button onClick={handleComprar} className="btn-primary" disabled={carrito.length==0}>Finalizar compra</button>
+      </div>
     </>
   );
 }
