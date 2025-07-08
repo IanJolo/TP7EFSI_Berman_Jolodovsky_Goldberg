@@ -185,10 +185,6 @@
 }
 
 
-
-
-
-
 .filtro-select {
   padding: 0.5rem 1rem;
   padding-right: 2.5rem;
@@ -219,17 +215,11 @@
 
 
 
-
-
-
-
-
-
 .buscador-input {
   padding: 0.6rem 1.25rem;
   font-size: 1rem;
   font-weight: 500;
-  background-color: #f3f4f6; /* gris claro moderno */
+  background-color: #f3f4f6;
   border: 2px solid transparent;
   border-radius: 9999px;
   color: #111827;
@@ -240,22 +230,15 @@
 }
 
 .buscador-input::placeholder {
-  color: #6b7280; /* gris medio */
+  color: #6b7280;
   font-weight: 400;
 }
 
 .buscador-input:focus {
-  border-color: #6366f1; /* azul moderno */
+  border-color: #6366f1;
   background-color: #fff;
   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
 }
-
-
-
-
-
-
-
 
 
 .producto-detalle-wrapper {
@@ -264,7 +247,6 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-/* Botón de flecha */
 .boton-volver {
   position: absolute;
   top: 1.5rem;
@@ -292,4 +274,45 @@
   background-color: #f3f4f6;
   border-color: #6366f1;
   color: #4338ca;
+}
+
+
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.paginacion-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #f3f4f6;
+  border: 1.5px solid #d1d5db;
+  color: #374151;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-width: 40px;
+  text-align: center;
+}
+
+.paginacion-btn:hover:not(:disabled) {
+  background-color: #e0e7ff;
+  border-color: #6366f1;
+  color: #1e40af;
+}
+
+.paginacion-btn.active {
+  background-color: #6366f1;
+  color: #ffffff;
+  border-color: #6366f1;
+  font-weight: bold;
+}
+
+.paginacion-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
