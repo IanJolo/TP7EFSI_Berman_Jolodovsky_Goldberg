@@ -58,8 +58,9 @@
   height: auto;
   border-radius: 0.8rem;
   margin-bottom: 1rem;
+  transition: transform 0.1s ease-in-out;
 }
 
-.integrante-card .integrante-foto:hover {
-  width: 60%;
+.integrante-card:hover .integrante-foto {
+  transform: scale(2);
 }

@@ -20,7 +20,7 @@ export default function QuienesSomos() {
       nombre: "Uriel Berman",
       rol: "Gestión",
       descripcion:
-        "Siempre listo para ayudarte!",
+        "Gestiono la experiencia de usuario",
       foto: berman,
     },
     {
