@@ -6,7 +6,7 @@ import { CarritoContext } from '../context/CarritoContext';
 
 export default function ProductoDetalle() {
   const { idProducto } = useParams();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const url = `https://dummyjson.com/products/${idProducto}`;
   const [producto, setProducto] = useState(null);
   const { agregarAlCarrito } = useContext(CarritoContext);
@@ -21,8 +21,9 @@ export default function ProductoDetalle() {
       });
   }, [idProducto]);
 
-  if (!producto) return <div className="loading">Cargando producto...</div>;
-
+  if (!producto) {
+  return <div className="loading">Cargando producto...</div>;
+}
   const agregarAlCarro = () => {
     agregarAlCarrito(producto);
   };
@@ -34,11 +35,7 @@ export default function ProductoDetalle() {
       </button>
 
       <div className="producto-container">
-        <img
-          src={producto.images?.[0]}
-          alt={producto.title}
-          className="producto-imagen"
-        />
+        <img src={producto.images?.[0]} className="producto-imagen" />
         <div className="producto-info">
           <h1 className="producto-titulo">{producto.title}</h1>
           <p className="producto-descripcion">{producto.description}</p>

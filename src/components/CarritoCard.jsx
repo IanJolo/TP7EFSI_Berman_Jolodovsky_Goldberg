@@ -3,20 +3,33 @@ import './CarritoCard.css';
 import { CarritoContext } from '../context/CarritoContext';
 import { FaTrash } from 'react-icons/fa';
 import AjustarCantidad from './AjustarCantidad';
+import Swal from 'sweetalert2'; 
 
 export default function CarritoCard({ producto }) {
-  const { eliminarDelCarrito, carrito } = useContext(CarritoContext); 
+  const { eliminarDelCarrito, agregarCantCarrito, carrito } = useContext(CarritoContext); 
   const itemCarrito = carrito.find(item => item.prod.id === producto.prod.id);
-
-
+  const cantidad = itemCarrito?.cantidad || 1; 
 
   const handleEliminar = () => {
-    eliminarDelCarrito(producto.prod.id);
+    Swal.fire({
+      title: "¿Querés eliminar este producto del carrito?",
+      text: itemCarrito.prod.title,
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí",
+      cancelButtonText: "Cancelar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+          eliminarDelCarrito(itemCarrito.prod.id);
+        }
+    });
   };
 
   return (
     <div className="carrito-card">
-      <img src={producto.prod.thumbnail} alt={producto.prod.title} className="carrito-card-img" />
+      <img src={producto.prod.thumbnail} className="carrito-card-img" />
       <div className="carrito-card-info">
         <h3 className="carrito-card-title">{producto.prod.title}</h3>
         <p className="carrito-card-desc">{producto.prod.description}</p>

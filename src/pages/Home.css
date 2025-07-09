@@ -8,7 +8,7 @@
   padding: 0 20px;
 }
 
-.hero-banner {
+.home-banner {
   background-color: #608ecf;
   color: white;
   padding: 80px 0;
@@ -17,34 +17,34 @@
   min-height: 500px;
 }
 
-.hero-content {
+.home-content {
   flex: 1;
   max-width: 600px;
   margin-right: 40px;
   margin-left: 80px;
 }
 
-.hero-title {
+.home-title {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 20px;
   line-height: 1.2;
 }
 
-.hero-subtitle {
+.home-subtitle {
   font-size: 1.3rem;
   margin-bottom: 30px;
   opacity: 0.9;
   line-height: 1.6;
 }
 
-.hero-buttons {
+.home-buttons {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
 }
 
-.btn-primary {
+.boton-primario {
   background: #1053b3;
   color: white;
   border: none;
@@ -54,18 +54,15 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(23, 113, 197, 0.3);
 }
 
-.btn-primary:hover {
-  background: #094599;
+.boton-primario:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(155, 223, 255, 0.4);
 }
 
-.btn-secondary {
-  background: transparent;
-  color: white;
+.boton-secundario {
+  color: rgb(255, 255, 255);
+  background-color:#ce7256;
   border: 2px solid white;
   padding: 13px 28px;
   border-radius: 50px;
@@ -74,21 +71,19 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
-.btn-secondary:hover {
-  background: white;
-  color: #1053b3;
+.boton-secundario:hover {
   transform: translateY(-2px);
 }
 
-.hero-image {
+
+.home-image {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hero-placeholder {
+.home-placeholder {
   width: 300px;
   height: 300px;
   background: rgba(255, 255, 255, 0.1);
@@ -421,8 +416,8 @@
     font-size: 1rem;
   }
 
-  .btn-primary,
-  .btn-secondary {
+  .boton-primario,
+  .boton-secundario {
     padding: 12px 24px;
     font-size: 1rem;
   }
