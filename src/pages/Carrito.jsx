@@ -20,7 +20,6 @@ export default function Carrito() {
   const handleBorrarCarrito=()=>{
     Swal.fire({
                     title: "¿Estás seguro que querés borrar el carrito?",
-                    text:  itemCarrito.prod.title,
                     icon: "question",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
