@@ -3,6 +3,7 @@ import CarritoCard from '../components/CarritoCard';
 import { CarritoContext } from '../context/CarritoContext';
 import './Carrito.css'
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default function Carrito() {
   const { carrito, borrarCarrito } = useContext(CarritoContext);
@@ -17,7 +18,20 @@ export default function Carrito() {
   }, []);
 
   const handleBorrarCarrito=()=>{
-    borrarCarrito();
+    Swal.fire({
+                    title: "¿Estás seguro que querés borrar el carrito?",
+                    text:  itemCarrito.prod.title,
+                    icon: "question",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Si",
+                    cancelButtonText: "Cancelar"
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      borrarCarrito();
+                    }
+                  });
   }
   const handleComprar=()=>{
     navigate('/checkout');
