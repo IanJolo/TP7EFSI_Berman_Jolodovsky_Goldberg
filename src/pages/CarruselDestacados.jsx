@@ -2,31 +2,31 @@ import React, { useEffect, useState } from 'react';
 import './CarruselDestacados.css';
 
 const destacados = [
-    {
-      id: 1,
-      titulo: "iPhone 14 Pro",
-      descripcion: "Exclusivo desde nuestro sitio con 20% de descuento.",
-      imagen: "./src/assets/iphone14.png",
-    },
-    {
-      id: 2,
-      titulo: "iPad Pro M2",
-      descripcion: "Poder y creatividad en tus manos. Solo desde nustro sitio.",
-      imagen: "./src/assets/ipadpro.jpg",
-    },
-    {
-      id: 3,
-      titulo: "MacBook Air M2",
-      descripcion: "Ligera, veloz, con precio especial en nuestro sitio.",
-      imagen: "./src/assets/macbook.jpg",
-    },
-    {
-      id: 4,
-      titulo: "Apple Watch Series 9",
-      descripcion: "Estilo y salud con acceso anticipado desde nuestro sitio.",
-      imagen: "./src/assets/applewatch.jpg",
-    },
-  ];
+  {
+    id: 1,
+    titulo: "iPhone 14 Pro",
+    descripcion: "Exclusivo desde nuestro sitio con 20% de descuento.",
+    imagen: "./src/assets/iphone14.png",
+  },
+  {
+    id: 2,
+    titulo: "iPad Pro M2",
+    descripcion: "Poder y creatividad en tus manos. Solo desde nuestro sitio.",
+    imagen: "./src/assets/ipadpro.jpg",
+  },
+  {
+    id: 3,
+    titulo: "MacBook Air M2",
+    descripcion: "Ligera, veloz, con precio especial en nuestro sitio.",
+    imagen: "./src/assets/macbook.jpg",
+  },
+  {
+    id: 4,
+    titulo: "Apple Watch Series 9",
+    descripcion: "Estilo y salud con acceso anticipado desde nuestro sitio.",
+    imagen: "./src/assets/applewatch.jpg",
+  },
+];
 
 export default function CarruselDestacados() {
   const [index, setIndex] = useState(0);
@@ -50,7 +50,7 @@ export default function CarruselDestacados() {
             <div className="slide-info">
               <h2>{item.titulo}</h2>
               <p>{item.descripcion}</p>
-              <button className="ver-btn">Ver ahora</button>
+                <a href="https://www.apple.com" target="_blank" className="ver-boton" >Ver ahora </a>
             </div>
           </div>
         ))}
