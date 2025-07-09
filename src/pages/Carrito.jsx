@@ -41,15 +41,15 @@ export default function Carrito() {
     <>
       <div><h2>Carrito</h2></div>
       {carrito.length === 0 ? (
-        <p>No hay productos en el carrito.</p>
+        <p className="textoNoCarrito">No hay productos en el carrito.</p>
       ) : (
-        carrito.map((item, index) => (
-          <CarritoCard key={index} producto={item} />
+        carrito.map((item) => (
+          <CarritoCard producto={item} />
         ))
       )}
       <div className='botones-abajo'>
-          <button onClick={handleBorrarCarrito} className="btn-secondary" disabled={carrito.length==0}>Borrar carrito</button>
-          <button onClick={handleComprar} className="btn-primary" disabled={carrito.length==0}>Finalizar compra</button>
+          <button onClick={handleBorrarCarrito} className="boton-secundario" disabled={carrito.length==0}>Borrar carrito</button>
+          <button onClick={handleComprar} className="boton-primario" disabled={carrito.length==0}>Finalizar compra</button>
       </div>
     </>
   );

@@ -26,7 +26,7 @@ export default function Checkout() {
   }, []);
   useEffect(()=>{
     const totalCalculado = carrito.reduce((acc, item) => acc + item.cant * item.prod.price, 0);
-    setTotal(totalCalculado);
+    setTotal(parseFloat(totalCalculado.toFixed(2)));
   },[carrito])
 
 
@@ -100,7 +100,7 @@ export default function Checkout() {
 
         {error && <p className="form-error">{error}</p>}
 
-        <button type="submit" className="btn-primary">
+        <button type="submit" className="boton-primario">
           Confirmar compra
         </button>
       </form>
@@ -118,7 +118,7 @@ export default function Checkout() {
                 </li>
               ))}
             </ul>
-            <p className="total">Total: ${total}</p>
+            <p className="total">Total: ${total.toFixed(2)}</p>
           </>
         )}
       </div>

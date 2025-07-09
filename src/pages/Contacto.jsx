@@ -37,29 +37,9 @@ const Contacto = () => {
     <div className="contacto-container">
       <h2>Contacto</h2>
       <form className="contacto-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="nombre"
-          placeholder="Tu nombre"
-          value={form.nombre}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Tu email"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="mensaje"
-          placeholder="Tu mensaje"
-          value={form.mensaje}
-          onChange={handleChange}
-          required
-        />
+        <input type="text" name="nombre" placeholder="Tu nombre" value={form.nombre} onChange={handleChange} required />
+        <input type="email" name="email" placeholder="Tu email" value={form.email} onChange={handleChange} required />
+        <textarea name="mensaje" placeholder="Tu mensaje" value={form.mensaje} onChange={handleChange} required />
         <button type="submit">Enviar</button>
       </form>
     </div>
