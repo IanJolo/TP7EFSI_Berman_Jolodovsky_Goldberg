@@ -3,6 +3,7 @@ import './CardProducto.css';
 import { CarritoContext } from '../context/CarritoContext';
 import { useEffect, useState, useContext } from 'react';
 import AjustarCantidad from './AjustarCantidad';
+import { Link } from 'react-router-dom';
 
 export default function CardProducto({ producto }) {
   const [estaEnElCarrito, setEstaEnElCarrito] = useState(false);
@@ -23,11 +24,11 @@ export default function CardProducto({ producto }) {
    
   return (
     <div className="card">
-    <a href={`/TP7EFSI_Berman_Jolodovsky_Goldberg/producto/${producto.id}`}>
+    <Link to={`/producto/${producto.id}`}>
       <img src={producto.images[0]} alt={producto.title} />
       <h2>{producto.title || 'Producto'}</h2>
       <h3>{`$${producto.price}`}</h3>
-    </a>
+    </Link>
       { !estaEnElCarrito ?(
         <button onClick={handleAgregar} className='btn-agregar'>Agregar</button>
       ) : (

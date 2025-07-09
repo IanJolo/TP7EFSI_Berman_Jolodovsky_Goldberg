@@ -2,6 +2,7 @@ import React, { use } from 'react'
 import { useContext, useState, useEffect } from 'react';
 import { CarritoContext } from '../context/CarritoContext';
 import './AjustarCantidad.css';
+import Swal from 'sweetalert2';
 
 export default function AjustarCantidad({ itemID }) {
     const { agregarCantCarrito, carrito } = useContext(CarritoContext);
@@ -13,10 +14,32 @@ export default function AjustarCantidad({ itemID }) {
         setCantidad(itemCarrito.cant);
       }
     }, [itemCarrito]);
+
+    const handleRestar=() => {
+        if (cantidad == 1) {
+            Swal.fire({
+                title: "¿Querés eliminar este producto del carrito?",
+                text:  itemCarrito.prod.title,
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Si",
+                cancelButtonText: "Cancelar"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    agregarCantCarrito(itemCarrito.prod.id, cantidad - 1);
+                }
+              });
+        } else{
+            agregarCantCarrito(itemCarrito.prod.id, cantidad - 1);
+        }
+
+    }
   
     return (
       <div className='cantidad'>
-        <button className='btn-secondary' onClick={() => agregarCantCarrito(itemCarrito.prod.id, cantidad - 1)}>-</button>
+        <button className='btn-secondary' onClick={handleRestar}>-</button>
         <span>{cantidad}</span>
         <button className='btn-secondary' onClick={() => agregarCantCarrito(itemCarrito.prod.id, cantidad + 1)}>+</button>
       </div>

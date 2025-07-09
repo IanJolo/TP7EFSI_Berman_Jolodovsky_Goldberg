@@ -19,14 +19,14 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <Link to='/TP7EFSI_Berman_Jolodovsky_Goldberg/' className="logo"><img src={logo} className='logo' /><span>TuiTui</span></Link>
+      <Link to='/' className="logo"><img src={logo} className='logo' /><span>TuiTui</span></Link>
       <div className="nav-links">
-        <Link to="/TP7EFSI_Berman_Jolodovsky_Goldberg/" className="nav-link">Home</Link>
-        <Link to="/TP7EFSI_Berman_Jolodovsky_Goldberg/productos" className="nav-link">Productos</Link>
-        <Link to="/TP7EFSI_Berman_Jolodovsky_Goldberg/quienessomos" className="nav-link">Quiénes somos</Link>
-        <Link to="/TP7EFSI_Berman_Jolodovsky_Goldberg/contacto" className="nav-link">Contacto</Link>
+        <Link to="/" className="nav-link">Home</Link>
+        <Link to="/productos" className="nav-link">Productos</Link>
+        <Link to="/quienessomos" className="nav-link">Quiénes somos</Link>
+        <Link to="/contacto" className="nav-link">Contacto</Link>
       </div>
-      <Link to="/TP7EFSI_Berman_Jolodovsky_Goldberg/carrito" className="carrito-link">
+      <Link to="/carrito" className="carrito-link">
         <span className="carrito-cantidad">{cantidadCarrito || '0'}</span>
         <AiOutlineShoppingCart size={24} />
       </Link>

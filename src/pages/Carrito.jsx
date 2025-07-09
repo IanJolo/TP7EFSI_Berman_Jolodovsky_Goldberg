@@ -20,7 +20,7 @@ export default function Carrito() {
     borrarCarrito();
   }
   const handleComprar=()=>{
-    navigate('/TP7EFSI_Berman_Jolodovsky_Goldberg/checkout');
+    navigate('/checkout');
   }
 
   return (

@@ -61,7 +61,7 @@ export default function Checkout() {
       .then(response => {
         console.log('Email enviado', response.status, response.text);
         borrarCarrito();
-        navigate('/TP7EFSI_Berman_Jolodovsky_Goldberg/compra-exitosa');
+        navigate('/compra-exitosa');
       })
       .catch(error => {
         console.error('Error al enviar email', error);

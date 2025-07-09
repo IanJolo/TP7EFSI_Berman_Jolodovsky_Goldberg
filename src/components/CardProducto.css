@@ -27,7 +27,7 @@
 
 .card h2 {
     font-size: 1.2rem;
-    color: #4a00e0;
+    color: #0b64ad;
     margin: 0.5rem 0;
 }
 
@@ -37,7 +37,7 @@
     font-weight: 600;
 }
 .card .btn-agregar {
-    background: linear-gradient(90deg, #4a00e0, #8e2de2);
+    background: linear-gradient(90deg, #3f6dee, #2071ce);
     color: white;
     border: none;
     padding: 0.8rem 1.2rem;

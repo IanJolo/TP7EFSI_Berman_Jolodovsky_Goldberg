@@ -13,7 +13,7 @@ export default function CompraExitosa() {
         <h1>¡Gracias por tu compra!</h1>
         <p>Tu pedido fue confirmado y está siendo procesado.</p>
         <p>Te enviaremos un correo con los detalles del pedido.</p>
-        <Link to="/TP7EFSI_Berman_Jolodovsky_Goldberg/" className="btn-volver">Volver al inicio</Link>
+        <Link to="/" className="btn-volver">Volver al inicio</Link>
       </div>
     </div>
   );

@@ -52,9 +52,9 @@ export default function Productos() {
     const nuevaCategoria = e.target.value;
     setPaginaActual(1);
     if (nuevaCategoria === "Todas") {
-      navigate("/TP7EFSI_Berman_Jolodovsky_Goldberg/productos/");
+      navigate("/productos/");
     } else {
-      navigate(`/TP7EFSI_Berman_Jolodovsky_Goldberg/productos/${nuevaCategoria}`);
+      navigate(`/productos/${nuevaCategoria}`);
     }
   };
 

@@ -51,6 +51,7 @@
   align-items: center;
   gap: 0.6rem;
   margin-top: 0.6rem;
+  width: 20%;
 }
 
 .carrito-card-cantidad label {

@@ -34,7 +34,7 @@ export default function Home() {
   }, []);
 
   const handleVerTodos = () => {
-    navigate('/TP7EFSI_Berman_Jolodovsky_Goldberg/productos');
+    navigate('/productos');
   };
 
   return (

@@ -13,20 +13,20 @@ import CompraExitosa from './pages/CompraExitosa';
 function App() {
   return (
     <CarritoProvider>
-    <Routes>
-      <Route path="/TP7EFSI_Berman_Jolodovsky_Goldberg/" element={<MainLayout />}>
-        <Route index element={<Home />} />
-        <Route path="quienessomos" element={<QuienesSomos />} />
-        <Route path="productos" element={<Productos />} />
-        <Route path="producto/:idProducto" element={<ProductoDetalle />} />
-        <Route path="productos/:idCategoria" element={<Productos />} /> 
-        <Route path="contacto" element={<Contacto />} />
-        <Route path="carrito" element={<Carrito />} />
-        <Route path="checkout" element={<Checkout />} />
-        <Route path="compra-exitosa" element={<CompraExitosa />} />
-        <Route path="*" element={<h1>404</h1>} />
-      </Route>
-    </Routes>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="quienessomos" element={<QuienesSomos />} />
+          <Route path="productos" element={<Productos />} />
+          <Route path="producto/:idProducto" element={<ProductoDetalle />} />
+          <Route path="productos/:idCategoria" element={<Productos />} /> 
+          <Route path="contacto" element={<Contacto />} />
+          <Route path="carrito" element={<Carrito />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="compra-exitosa" element={<CompraExitosa />} />
+          <Route path="*" element={<h1>404</h1>} />
+        </Route>
+      </Routes>
     </CarritoProvider>
   );
 }
