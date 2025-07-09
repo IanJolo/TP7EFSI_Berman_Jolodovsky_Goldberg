@@ -8,10 +8,12 @@ import './MainLayout.css';
 function MainLayout() {
   return (
     <>
+      <div className='min-height'>
       <Navbar />
       <main className="main-content">
         <Outlet />
       </main>
+      </div>
       <Footer />
     </>
   );
