@@ -19,7 +19,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="logo"><img src={logo} alt="TuiTui Logo" className='logo' /><span>TuiTui</span></div>
+      <Link to='/TP7EFSI_Berman_Jolodovsky_Goldberg/' className="logo"><img src={logo} alt="TuiTui Logo" className='logo' /><span>TuiTui</span></Link>
       <div className="nav-links">
         <Link to="/TP7EFSI_Berman_Jolodovsky_Goldberg/" className="nav-link">Home</Link>
         <Link to="/TP7EFSI_Berman_Jolodovsky_Goldberg/productos" className="nav-link">Productos</Link>

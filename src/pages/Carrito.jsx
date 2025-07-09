@@ -25,7 +25,7 @@ export default function Carrito() {
 
   return (
     <>
-      <div>Carrito</div>
+      <div><h2>Carrito</h2></div>
       {carrito.length === 0 ? (
         <p>No hay productos en el carrito.</p>
       ) : (
