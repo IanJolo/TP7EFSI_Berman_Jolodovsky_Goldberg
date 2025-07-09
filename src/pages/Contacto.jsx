@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import  "./Contacto.css"
+import "./Contacto.css"
 import emailjs from "@emailjs/browser";
 
 const Contacto = () => {
@@ -9,8 +9,8 @@ const Contacto = () => {
     mensaje: "",
   });
   emailjs.init('nakUWrDH1cw7NtNEb');
-  const serviceID='service_toh0q67';
-  const templateID='template_br38avy';
+  const serviceID = 'service_toh0q67';
+  const templateID = 'template_br38avy';
 
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });

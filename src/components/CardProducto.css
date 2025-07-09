@@ -9,6 +9,7 @@
     flex-direction: column;
     justify-content: space-between;
     text-decoration: none;
+    z-index: 1;
 }
 
 .card:hover {
@@ -34,4 +35,19 @@
     font-size: 1rem;
     color: #555;
     font-weight: 600;
+}
+.card .btn-agregar {
+    background: linear-gradient(90deg, #4a00e0, #8e2de2);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+.card a{
+    text-decoration: none;
 }
