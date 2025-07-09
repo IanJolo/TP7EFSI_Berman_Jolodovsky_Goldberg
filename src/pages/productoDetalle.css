@@ -69,20 +69,13 @@ body {
 }
 
 .btn-agregar-carrito {
+  background-color: #5f68eb;
   margin-top: 2rem;
   padding: 0.85rem 2.5rem;
   font-size: 1.1rem;
   font-weight: 600;
   color: #fff;
-  background-image: linear-gradient(45deg, #7b2ff7, #4a00e0);
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 6px 12px rgba(74, 0, 224, 0.4);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn-agregar-carrito:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(74, 0, 224, 0.6);
 }

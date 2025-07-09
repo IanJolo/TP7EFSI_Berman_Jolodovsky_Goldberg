@@ -29,7 +29,7 @@ export default function ProductoDetalle() {
 
   return (
     <div className="producto-detalle-wrapper">
-      <button className="boton-volver" onClick={() => navigate(-1)} aria-label="Volver">
+      <button className="boton-volver" onClick={() => navigate(-1)} >
         ←
       </button>
 
@@ -43,12 +43,7 @@ export default function ProductoDetalle() {
           <h1 className="producto-titulo">{producto.title}</h1>
           <p className="producto-descripcion">{producto.description}</p>
           <h2 className="producto-precio">${producto.price}</h2>
-          <button
-            className="btn-agregar-carrito"
-            onClick={agregarAlCarro}
-          >
-            Agregar al carrito
-          </button>
+          <button className="btn-agregar-carrito" onClick={agregarAlCarro}>Agregar al carrito</button>
         </div>
       </div>
     </div>

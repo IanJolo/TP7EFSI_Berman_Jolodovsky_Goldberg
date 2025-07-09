@@ -15,19 +15,17 @@ export default function Productos() {
   const [totalProductos, setTotalProductos] = useState(0);
   const [paginaActual, setPaginaActual] = useState(1);
 
-  const productosPorPagina = 20;
-  const productosPorFila = 4;
 
   useEffect(() => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth' 
+      behavior: 'smooth'
     });
   }, []);
   useEffect(() => {
     let endpoint = url;
-    let params = { limit: productosPorPagina, skip: (paginaActual - 1) * productosPorPagina };
+    let params = { limit: 20, skip: (paginaActual - 1) * 20 };
 
     if ((!idCategoria || idCategoria === "Todas") && buscador) {
       endpoint = `${url}/search`;
@@ -69,10 +67,10 @@ export default function Productos() {
     setPaginaActual(nuevaPagina);
   };
 
-  const totalPaginas = Math.ceil(totalProductos / productosPorPagina);
+  const totalPaginas = Math.ceil(totalProductos / 20);
 
   const placeholders = productos.length > 0
-    ? productosPorFila - (productos.length % productosPorFila || productosPorFila)
+    ? 4 - (productos.length % 4 || 4)
     : 0;
 
   return (
@@ -108,10 +106,7 @@ export default function Productos() {
         ) : (
           <>
             {productos.map(producto => (
-              <CardProducto key={producto.id} producto={producto} />
-            ))}
-            {Array.from({ length: placeholders }).map((_, idx) => (
-              <div key={`placeholder-${idx}`} style={{ visibility: "hidden" }} />
+              <CardProducto producto={producto} />
             ))}
           </>
         )}
@@ -122,8 +117,7 @@ export default function Productos() {
           <button
             className="paginacion-btn"
             onClick={() => handlePaginaChange(paginaActual - 1)}
-            disabled={paginaActual === 1}
-          >
+            disabled={paginaActual === 1}>
             Anterior
           </button>
           {[...Array(totalPaginas)].map((_, i) => (
