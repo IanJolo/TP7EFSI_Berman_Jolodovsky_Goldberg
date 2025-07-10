@@ -21,7 +21,7 @@ function Navbar() {
     <nav className="navbar">
       <Link to='/' className="logo"><img src={logo} className='logo' /><span>TuiTui</span></Link>
       <div className="nav-links">
-        <Link to="/" className="nav-link">Home</Link>
+        <Link to="//" className="nav-link">Home</Link>
         <Link to="/productos" className="nav-link">Productos</Link>
         <Link to="/quienessomos" className="nav-link">Quiénes somos</Link>
         <Link to="/contacto" className="nav-link">Contacto</Link>

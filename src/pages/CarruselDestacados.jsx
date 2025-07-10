@@ -46,7 +46,7 @@ export default function CarruselDestacados() {
       >
         {destacados.map((item) => (
           <div key={item.id} className="slide">
-            <img src={item.imagen} alt={item.titulo} className="slide-img" />
+            <img src={item.imagen} className="slide-img" />
             <div className="slide-info">
               <h2>{item.titulo}</h2>
               <p>{item.descripcion}</p>

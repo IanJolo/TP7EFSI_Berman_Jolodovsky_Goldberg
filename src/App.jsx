@@ -15,7 +15,7 @@ function App() {
     <CarritoProvider>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="quienessomos" element={<QuienesSomos />} />
           <Route path="productos" element={<Productos />} />
           <Route path="producto/:idProducto" element={<ProductoDetalle />} />
