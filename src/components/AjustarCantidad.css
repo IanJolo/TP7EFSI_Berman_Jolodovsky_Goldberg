@@ -47,7 +47,6 @@
   }
   
   .boton-sumar-restar:hover {
-background: white;
+  background: white;
   color: #1053b3;
-  transform: translateY(-2px);
   }

@@ -74,35 +74,12 @@ export default function Checkout() {
   return (
     <div className="checkout-container">
       <h2>Finalizar Compra</h2>
-
       <form className="checkout-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="nombre"
-          placeholder="Nombre completo"
-          value={formData.nombre}
-          onChange={handleInputChange}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Correo electrónico"
-          value={formData.email}
-          onChange={handleInputChange}
-        />
-        <input
-          type="text"
-          name="direccion"
-          placeholder="Dirección de envío"
-          value={formData.direccion}
-          onChange={handleInputChange}
-        />
-
+        <input type="text" name="nombre" placeholder="Nombre completo" value={formData.nombre} onChange={handleInputChange}/>
+        <input type="email" name="email" placeholder="Correo electrónico" value={formData.email} onChange={handleInputChange}/>
+        <input type="text" name="direccion" placeholder="Dirección de envío" value={formData.direccion} onChange={handleInputChange}/>
         {error && <p className="form-error">{error}</p>}
-
-        <button type="submit" className="boton-primario">
-          Confirmar compra
-        </button>
+        <button type="submit" className="boton-primario">Confirmar compra</button>
       </form>
 
       <div className="checkout-resumen">

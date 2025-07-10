@@ -1,5 +1,5 @@
-import React, { use } from 'react'
-import { useContext, useState, useEffect } from 'react';
+import React, { useEffect } from 'react'
+import { useContext, useState } from 'react';
 import { CarritoContext } from '../context/CarritoContext';
 import './AjustarCantidad.css';
 import Swal from 'sweetalert2';
@@ -20,7 +20,6 @@ export default function AjustarCantidad({ itemID }) {
       Swal.fire({
         title: "¿Querés eliminar este producto del carrito?",
         text: itemCarrito.prod.title,
-        icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",

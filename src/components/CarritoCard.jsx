@@ -6,15 +6,12 @@ import AjustarCantidad from './AjustarCantidad';
 import Swal from 'sweetalert2'; 
 
 export default function CarritoCard({ producto }) {
-  const { eliminarDelCarrito, agregarCantCarrito, carrito } = useContext(CarritoContext); 
+  const { eliminarDelCarrito, carrito } = useContext(CarritoContext); 
   const itemCarrito = carrito.find(item => item.prod.id === producto.prod.id);
-  const cantidad = itemCarrito?.cantidad || 1; 
-
   const handleEliminar = () => {
     Swal.fire({
       title: "¿Querés eliminar este producto del carrito?",
       text: itemCarrito.prod.title,
-      icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",

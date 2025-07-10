@@ -1,30 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import './CarruselDestacados.css';
-
+import ipad from "./../assets/ipadpro.jpg"
+import iphone from "./../assets/iphone14.png"
+import mac from "./../assets/macbook.jpg"
+import watch from "./../assets/applewatch.jpg"
 const destacados = [
   {
     id: 1,
     titulo: "iPhone 14 Pro",
     descripcion: "Exclusivo desde nuestro sitio con 20% de descuento.",
-    imagen: "./src/assets/iphone14.png",
+    imagen: iphone,
   },
   {
     id: 2,
     titulo: "iPad Pro M2",
     descripcion: "Poder y creatividad en tus manos. Solo desde nuestro sitio.",
-    imagen: "./src/assets/ipadpro.jpg",
+    imagen: ipad,
   },
   {
     id: 3,
     titulo: "MacBook Air M2",
     descripcion: "Ligera, veloz, con precio especial en nuestro sitio.",
-    imagen: "./src/assets/macbook.jpg",
+    imagen: mac,
   },
   {
     id: 4,
     titulo: "Apple Watch Series 9",
     descripcion: "Estilo y salud con acceso anticipado desde nuestro sitio.",
-    imagen: "./src/assets/applewatch.jpg",
+    imagen: watch,
   },
 ];
 
@@ -40,10 +43,7 @@ export default function CarruselDestacados() {
 
   return (
     <section className="carrusel-destacados">
-      <div
-        className="carrusel-track"
-        style={{ transform: `translateX(-${index * 100}%)` }}
-      >
+      <div className="carrusel-track" style={{ transform: `translateX(-${index * 100}%)` }}>
         {destacados.map((item) => (
           <div key={item.id} className="slide">
             <img src={item.imagen} className="slide-img" />
