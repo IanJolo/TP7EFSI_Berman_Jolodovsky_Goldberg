@@ -61,8 +61,8 @@ export default function Home() {
 
 
           <div className="products-grid">
-            {productosDestacados.map(producto => (
-              <CardProducto producto={producto} />
+            {productosDestacados.map((producto, i) => (
+              <CardProducto key={i} producto={producto} />
             ))}
           </div>
 

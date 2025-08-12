@@ -9,6 +9,8 @@ import { CarritoProvider } from './context/carritoProvider';
 import Carrito from './pages/Carrito';
 import Checkout from './pages/Checkout';
 import CompraExitosa from './pages/CompraExitosa';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
   return (
