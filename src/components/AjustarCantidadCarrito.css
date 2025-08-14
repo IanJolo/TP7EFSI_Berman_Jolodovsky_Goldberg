@@ -1,52 +1,32 @@
-.cantidad {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(90deg, #3f6dee, #2071ce);
-    border: none;
-    padding: 0.8rem 1.2rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: white;
-    cursor: default;
+/* Stepper gris como en la referencia */
+.qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 6px;
+  height: 36px;
+  padding: 0 6px;
+}
 
-    width: 100%;
-    height: 2.8rem; 
-    box-sizing: border-box;
-  }
-  
+.qty-btn {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  width: 32px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #173260;
+  cursor: pointer;
+}
+.qty-btn:hover { background: #f3f4f6; }
 
-  
-  .cantidad span {
-    font-size: 0.9rem;
-    width: 2rem;
-    text-align: center;
-    color: white;
-    line-height: 2.8rem; 
-  }
-
-  .boton-sumar-restar {
-    background: linear-gradient(90deg, #3f6dee, #2071ce);
-    border: none;
-    border-radius: 6px;
-    width: 2.4rem;
-    height: 2.4rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    border-radius: 50px;
-    border: 2px solid white;
-     align-items: center;
-       padding: 13px 28px;
-
-    justify-content: center;
-    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
-  }
-  
-  .boton-sumar-restar:hover {
-  background: white;
-  color: #1053b3;
-  }
+.qty-value {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 700;
+  color: #173260;
+}

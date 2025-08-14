@@ -1,52 +1,73 @@
-.card {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    padding: 1.5rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-decoration: none;
-    z-index: 1;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-.card img {
-    width: 50%;
-    height: auto;
-    object-fit: cover;
+/* ====== FILA DEL CARRITO (look de la foto) ====== */
+.cartRow {
+    display: grid;
+    grid-template-columns: 64px 1fr auto auto;
+    gap: 12px 16px;
+    align-items: center;
+    padding: 10px 12px;
     border-radius: 12px;
-}
-
-.card h2 {
-    font-size: 1.2rem;
-    color: #0b64ad;
-    margin: 0.5rem 0;
-}
-
-.card h3 {
-    font-size: 1rem;
-    color: #555;
-    font-weight: 600;
-}
-.card .btn-agregar {
-    background: linear-gradient(90deg, #3f6dee, #2071ce);
-    color: white;
-    border: none;
-    padding: 0.8rem 1.2rem;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  
+  .cartThumb img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
     border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-    z-index: 9999;
-}
-.card a{
+    display: block;
+  }
+  
+  /* Info */
+  .cartInfo { display: flex; flex-direction: column; min-width: 0; }
+  .cartTopLine { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  
+  .cartTitle {
+    color: #173260;
+    font-weight: 600;
     text-decoration: none;
-}
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 32ch;
+  }
+  .cartTitle:hover { text-decoration: underline; }
+  
+  .cartVariant { color: #6b7280; font-size: .95rem; }
+  
+  /* Borrar a la derecha de la primera línea */
+  .cartRemove {
+    margin-left: auto;
+    background: transparent;
+    border: 0;
+    color: #6b7280;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .cartRemove:hover { color: #d11a2a; }
+  
+  .cartQty { justify-self: start; }
+  
+  /* Precio a la derecha, fuerte */
+  .cartPrice {
+    justify-self: end;
+    font-weight: 700;
+    color: #173260;
+    white-space: nowrap;
+  }
+  
+  /* Responsive: precio abajo en pantallas chicas */
+  @media (max-width: 430px) {
+    .cartRow {
+      grid-template-columns: 56px 1fr auto;
+      grid-template-areas:
+        "thumb info remove"
+        "thumb qty  price";
+    }
+    .cartThumb { grid-area: thumb; }
+    .cartInfo { grid-area: info; }
+    .cartQty { grid-area: qty; }
+    .cartPrice { grid-area: price; }
+    .cartRemove { grid-area: remove; margin-left: 0; }
+  }
+  
