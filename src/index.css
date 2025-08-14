@@ -72,3 +72,15 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+
+/* Asegura que el html también se bloquee cuando el offcanvas esté abierto */
+html.lock-scroll {
+  overflow: hidden !important;
+}
+
+/* No pises el lock del body que mete Bootstrap */
+body.offcanvas-open {
+  overflow: hidden !important;
+}
