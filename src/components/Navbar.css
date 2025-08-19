@@ -6,7 +6,8 @@
   background: linear-gradient(90deg, #e0eafc, #cfdef3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   border-radius: 0 0 1rem 1rem;
-  position: sticky;
+  position: fixed !important;
+  width: 100%;
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(6px);
@@ -18,7 +19,7 @@
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+
 }
 
 .logo {
@@ -42,15 +43,24 @@
 .nav-links {
   display: flex;
   gap: 0.5rem;
+  justify-content: space-between;
+  width: 30%;
 }
 
 .nav-link {
   text-decoration: none;
   color: #444;
   font-weight: 500;
-  padding: 0.6rem 1.2rem; /* más espacio clicable */
+  padding: 10rem 1.2rem; /* más espacio clicable */
   border-radius: 0.8rem;
   transition: all 0.3s ease-in-out;
+  display: flex
+;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 .nav-link:hover {

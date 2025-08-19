@@ -1,0 +1,41 @@
+.carrito-btn {
+    position: relative; /* 🔑 para que el absolute se refiera al botón */
+  }
+  
+  .productos-carrito-ham {
+    position: absolute;
+    top: 120%;         
+    right: 100px;         
+    width: 30vw;      
+    height: 50vh;       
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow-y: auto;
+    z-index: 999;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .products{
+    height: 70%;
+    width: 90%;
+    flex: 1;                   
+  overflow-y: auto;  
+  }
+  .btn {
+    background: linear-gradient(90deg, #3f6dee, #2071ce);
+    color: white !important;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}

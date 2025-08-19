@@ -1,36 +1,23 @@
 import { Link } from 'react-router-dom';
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useRef } from 'react';
 import { CarritoContext } from '../context/CarritoContext';
 import './Navbar.css';
 import logo from '../assets/logo.png';
-import CardCarritoHamburguer from './CardCarritoHamburguer';
 import { Offcanvas } from 'bootstrap';
+import CarritoAbsolute from './CarritoAbsolute';
 
 function Navbar() {
   const [cantidadCarrito, setCantidadCarrito] = useState(0);
   const { carrito } = useContext(CarritoContext);
+  const [mostrarCarrito, setMostrarCarrito] = useState(false);
 
- // ✅ LÓGICA para bloquear el scroll cuando se abre el offcanvas
- useEffect(() => {
-  const el = document.getElementById('offcanvasNavbar');
-  if (!el) return;
+  const carritoRef = useRef(null);
+  const botonRef = useRef(null);
 
-  // Crea/recupera instancia y fuerza opciones correctas
-  Offcanvas.getOrCreateInstance(el, { scroll: false, backdrop: true });
 
-  const onShown = () => document.documentElement.classList.add('lock-scroll');
-  const onHidden = () => document.documentElement.classList.remove('lock-scroll');
 
-  el.addEventListener('shown.bs.offcanvas', onShown);
-  el.addEventListener('hidden.bs.offcanvas', onHidden);
-
-  return () => {
-    el.removeEventListener('shown.bs.offcanvas', onShown);
-    el.removeEventListener('hidden.bs.offcanvas', onHidden);
-  };
-}, []);
-
+  // ✅ actualizar cantidad carrito
   useEffect(() => {
     let cant = 0;
     carrito.forEach(i => {
@@ -39,44 +26,66 @@ function Navbar() {
     setCantidadCarrito(cant);
   }, [carrito]);
   
+  const abrirCarrito = () => {
+    setMostrarCarrito(!mostrarCarrito);
+  };
+
+  // ✅ cerrar al hacer click afuera
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        carritoRef.current &&
+        !carritoRef.current.contains(event.target) &&
+        botonRef.current &&
+        !botonRef.current.contains(event.target)
+      ) {
+        setMostrarCarrito(false);
+      }
+    }
+
+    if (mostrarCarrito) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [mostrarCarrito]);
 
   return (
     <nav className="navbar">
       <div className='todo-navbar'>
-      <Link to='/' className="logo"><img src={logo} className='logo' /><span>TuiTui</span></Link>
-      <div className="nav-links">
-        <Link to="/" className="nav-link">Home</Link>
-        <Link to="/productos" className="nav-link">Productos</Link>
-        <Link to="/quienessomos" className="nav-link">Quiénes somos</Link>
-        <Link to="/contacto" className="nav-link">Contacto</Link>
-      </div>
+        <Link to='/' className="logo">
+          <img src={logo} className='logo' alt="Logo" />
+          <span>TuiTui</span>
+        </Link>
 
-
-      <button className="carrito-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Abrir carrito">
-      <span className="carrito-cantidad">{cantidadCarrito || '0'}</span>
-        <AiOutlineShoppingCart size={24} />
-    </button>
-    </div>
-
-
-
-    <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" data-bs-scroll="false" data-bs-backdrop="true">
-      <div className="offcanvas-header">
-        <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Carrito</h5>
-        <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div className="offcanvas-body">
-        <div className="productos-carrito-ham">
-          {
-            
-            carrito.map((element, i) => {
-                return <CardCarritoHamburguer key={i} producto={element}  />
-            })
-          }
+        <div className="nav-links">
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/productos" className="nav-link">Productos</Link>
+          <Link to="/quienessomos" className="nav-link">Quiénes somos</Link>
+          <Link to="/contacto" className="nav-link">Contacto</Link>
         </div>
-      </div>
-    </div>
 
+        <button 
+          ref={botonRef}
+          className="carrito-btn" 
+          type="button" 
+          onClick={abrirCarrito} 
+          aria-label="Abrir carrito"
+        >
+          <span className="carrito-cantidad">{cantidadCarrito || '0'}</span>
+          <AiOutlineShoppingCart size={24} />
+        </button>
+      </div>
+
+      {mostrarCarrito && (
+        <div ref={carritoRef}>
+          <CarritoAbsolute setMostrarCarrito={setMostrarCarrito} />
+        </div>
+      )}
     </nav>
   );
 }
