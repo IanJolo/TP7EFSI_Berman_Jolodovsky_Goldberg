@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CarritoContext } from '../context/CarritoContext';
@@ -58,3 +58,20 @@ export default function CardCarritoHamburguer({ producto, variant, onRemove }) {
     </div>
   );
 }
+
+const { shape, oneOfType, number, string, arrayOf, func } = PropTypes;
+
+CardCarritoHamburguer.propTypes = {
+  producto: shape({
+    prod: shape({
+      id: oneOfType([number, string]).isRequired,
+      title: string,
+      price: number,
+      images: arrayOf(string),
+      variant: string,
+    }).isRequired,
+    cant: number,
+  }).isRequired,
+  variant: string,
+  onRemove: func,
+};

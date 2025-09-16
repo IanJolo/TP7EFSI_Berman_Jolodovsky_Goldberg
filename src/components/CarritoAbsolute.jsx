@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import './CarritoAbsolute.css'
 import {useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -36,3 +37,9 @@ export default function CarritoAbsolute({setMostrarCarrito}) {
         </div>
   )
 }
+
+const { func } = PropTypes;
+
+CarritoAbsolute.propTypes = {
+  setMostrarCarrito: func.isRequired,
+};

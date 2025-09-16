@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import Swal from 'sweetalert2';
 import { CarritoContext } from '../context/CarritoContext';
 import './AjustarCantidadCarrito.css';
@@ -41,3 +42,9 @@ export default function AjustarCantidadCarrito({ itemID }) {
     </div>
   );
 }
+
+const { oneOfType, number, string } = PropTypes;
+
+AjustarCantidadCarrito.propTypes = {
+  itemID: oneOfType([number, string]).isRequired,
+};

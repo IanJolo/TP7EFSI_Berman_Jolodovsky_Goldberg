@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types';
 import { useContext, useState } from 'react';
 import { CarritoContext } from '../context/CarritoContext';
 import './AjustarCantidad.css';
@@ -44,3 +45,9 @@ export default function AjustarCantidad({ itemID }) {
     </div>
   );
 }
+
+const { number } = PropTypes;
+
+AjustarCantidad.propTypes = {
+  itemID: number.isRequired,
+};

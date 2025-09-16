@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import './CarritoCard.css';
 import { CarritoContext } from '../context/CarritoContext';
 import { FaTrash } from 'react-icons/fa';
@@ -41,3 +42,18 @@ export default function CarritoCard({ producto }) {
     </div>
   );
 }
+
+const { shape, oneOfType, number, string } = PropTypes;
+
+CarritoCard.propTypes = {
+  producto: shape({
+    prod: shape({
+      id: oneOfType([number, string]).isRequired,
+      title: string,
+      description: string,
+      price: number,
+      thumbnail: string,
+    }).isRequired,
+    cant: number,
+  }).isRequired,
+};

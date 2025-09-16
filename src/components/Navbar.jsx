@@ -6,6 +6,7 @@ import './Navbar.css';
 import logo from '../assets/logo.png';
 import { Offcanvas } from 'bootstrap';
 import CarritoAbsolute from './CarritoAbsolute';
+import PropTypes from 'prop-types';
 
 function Navbar() {
   const [cantidadCarrito, setCantidadCarrito] = useState(0);
@@ -91,3 +92,5 @@ function Navbar() {
 }
 
 export default Navbar;
+
+Navbar.propTypes = {};
