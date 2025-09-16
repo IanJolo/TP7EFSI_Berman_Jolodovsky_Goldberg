@@ -46,5 +46,5 @@ export default function AjustarCantidadCarrito({ itemID }) {
 const { oneOfType, number, string } = PropTypes;
 
 AjustarCantidadCarrito.propTypes = {
-  itemID: oneOfType([number, string]).isRequired,
+  itemID: number.isRequired,
 };

@@ -18,7 +18,6 @@ function Navbar() {
 
 
 
-  // ✅ actualizar cantidad carrito
   useEffect(() => {
     let cant = 0;
     carrito.forEach(i => {
@@ -31,7 +30,6 @@ function Navbar() {
     setMostrarCarrito(!mostrarCarrito);
   };
 
-  // ✅ cerrar al hacer click afuera
   useEffect(() => {
     function handleClickOutside(event) {
       if (
@@ -93,4 +91,3 @@ function Navbar() {
 
 export default Navbar;
 
-Navbar.propTypes = {};

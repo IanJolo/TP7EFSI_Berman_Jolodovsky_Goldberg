@@ -48,7 +48,7 @@ const { shape, oneOfType, number, string } = PropTypes;
 CarritoCard.propTypes = {
   producto: shape({
     prod: shape({
-      id: oneOfType([number, string]).isRequired,
+      id: number.isRequired,
       title: string,
       description: string,
       price: number,

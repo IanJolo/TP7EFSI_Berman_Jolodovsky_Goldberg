@@ -64,7 +64,7 @@ const { shape, oneOfType, number, string, arrayOf, func } = PropTypes;
 CardCarritoHamburguer.propTypes = {
   producto: shape({
     prod: shape({
-      id: oneOfType([number, string]).isRequired,
+      id: number.isRequired,
       title: string,
       price: number,
       images: arrayOf(string),

@@ -46,7 +46,7 @@ const { shape, oneOfType, number, string, arrayOf } = PropTypes;
 
 CardProducto.propTypes = {
   producto: shape({
-    id: oneOfType([number, string]).isRequired,
+    id: number.isRequired,
     title: string,
     price: number,
     images: arrayOf(string),
